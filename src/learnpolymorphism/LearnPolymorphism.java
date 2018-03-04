@@ -5,29 +5,44 @@ public class LearnPolymorphism {
 
     public static void main(String[] args) {
        Human sagor = new Human("sagor");
-       Bus bus = new Bus("Ena");
+       
+       
+       Transport transport = new Bus("Hanif");
+       sagor.travel(transport, "CTG");
+       
+       
+       /*Bus bus = new Bus("Ena");
        sagor.travel(bus, "Dhaka");
        
         System.out.println("");
         Train t = new Train("InterCity");
-        sagor.travel(t, "Chittagong");
+        sagor.travel(t, "Chittagong");*/
     }
     
 }
-class Bus{
+class Transport{
     String name;
 
+    public Transport(String name) {
+        this.name = name;
+    }
+    
+    
+}
+class Bus extends Transport{
+    
     public Bus(String name) {
-        this.name = name;
+        super(name);
     }
     
+    
 }
-class Train{
-    String name;
-
+class Train extends Transport{
+   
     public Train(String name) {
-        this.name = name;
+        super(name);
     }
+   
     
 }
 class Human{
@@ -36,12 +51,20 @@ class Human{
     public Human(String name) {
         this.name = name;
     }
-    public void travel(Bus bus,String des){
+    /*public void travel(Bus bus,String des){
         System.out.println(this.name+" travelling to "+des+" by "+bus.name);
     }
      public void travel(Train train,String des){
         System.out.println(this.name+" travelling to "+des+" by "+train.name);
+    }*/
+    
+    public void travel(Transport transport,String des){
+            System.out.println(this.name+" travelling to "+des+" by "+transport.name);
+        
     }
+    
+    
+    
     
     
 }
